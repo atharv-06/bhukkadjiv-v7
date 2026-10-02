@@ -188,65 +188,426 @@ a {
 nav {
     position: sticky;
     top: 12px;
-    z-index: 100;
+    z-index: 1000;
+
+    width: calc(100% - 24px);
+    max-width: 1080px;
 
     margin: 12px auto 0;
-    max-width: 1040px;
-    width: calc(100% - 24px);
+
+    padding: 7px 8px 7px 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
     background: var(--card-bg);
+
     border: 2px solid var(--line);
     border-radius: 99px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    box-shadow:
+        0 4px 0 var(--deep);
 
-    padding: 6px 8px 6px 10px;
-
-    box-shadow: 0 4px 0 var(--deep);
+    transition:
+        background-color .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease,
+        transform .3s ease;
 }
 
+
+/* =========================================================
+   BRAND
+========================================================= */
+
 .brand {
+    flex: 0 0 auto;
+
     display: flex;
     align-items: center;
-    gap: 10px;
 
-    font-family: 'Fraunces', serif;
-    font-weight: 800;
-    font-size: 20px;
+    gap: 9px;
+
+    padding: 2px 8px 2px 2px;
 
     color: var(--brown);
+
+    font-family: 'Fraunces', serif;
+
+    font-size: 20px;
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    transition:
+        color .3s ease,
+        transform .2s ease;
+}
+
+.brand:hover {
+    transform: translateY(-1px);
 }
 
 .brand img {
     width: 42px;
     height: 42px;
+
+    display: block;
+
     border-radius: 50%;
+
     object-fit: cover;
+
+    border: 1px solid var(--line);
 }
 
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
+
 nav ul {
+    flex: 1 1 auto;
+
     display: flex;
-    gap: 6px;
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
 
     list-style: none;
+
     margin: 0;
     padding: 0;
 
-    font-weight: 600;
-    font-size: 15px;
+    min-width: 0;
+}
+
+nav ul li {
+    margin: 0;
+    padding: 0;
 }
 
 nav ul a {
-    padding: 8px 14px;
+    display: block;
+
+    padding: 8px 12px;
+
     border-radius: 99px;
+
+    color: var(--text-main);
+
+    font-size: 15px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition:
+        background-color .25s ease,
+        color .25s ease,
+        transform .2s ease;
 }
 
 nav ul a:hover {
     background: var(--soft-bg);
+
+    transform: translateY(-1px);
 }
 
+
+/* Active / clicked feeling */
+
+nav ul a:focus-visible {
+    outline: 2px solid var(--chili);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   NAV TOOLS
+========================================================= */
+
+.tools {
+    flex: 0 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    margin-left: auto;
+}
+
+.tools button {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0;
+
+    border: 2px solid var(--line);
+    border-radius: 50%;
+
+    background: var(--soft-bg);
+    color: var(--deep);
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color .25s ease,
+        color .25s ease,
+        transform .2s ease,
+        border-color .3s ease;
+}
+
+.tools button:hover {
+    transform: scale(1.06);
+
+    background: var(--mustard);
+}
+
+.tools button:focus-visible {
+    outline: 2px solid var(--chili);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   SAY HI
+========================================================= */
+
+.nav-sayhi {
+    flex: 0 0 auto;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 20px;
+
+    border: 2px solid var(--line);
+    border-radius: 99px;
+
+    background: var(--chili);
+    color: #fff;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 4px 0 var(--deep);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background-color .3s ease;
+}
+
+.nav-sayhi:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 0 var(--deep);
+}
+
+.nav-sayhi:active {
+    transform: translateY(1px);
+
+    box-shadow:
+        0 2px 0 var(--deep);
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.mobile-menu-btn {
+    display: none;
+
+    flex: 0 0 auto;
+
+    width: 40px;
+    height: 40px;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 2px solid var(--line);
+    border-radius: 50%;
+
+    background: var(--soft-bg);
+    color: var(--deep);
+
+    font-size: 20px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        background-color .25s ease,
+        color .25s ease;
+}
+
+.mobile-menu-btn:hover {
+    transform: scale(1.06);
+
+    background: var(--mustard);
+}
+
+.mobile-menu-btn:focus-visible {
+    outline: 2px solid var(--chili);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   MOBILE NAV
+========================================================= */
+
+@media (max-width: 900px) {
+
+    nav {
+        width: calc(100% - 20px);
+
+        padding: 6px 7px 6px 9px;
+
+        gap: 6px;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    .tools {
+        margin-left: auto;
+    }
+
+    .nav-sayhi {
+        padding: 9px 16px;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+}
+
+
+/* =========================================================
+   MOBILE MENU OPEN
+========================================================= */
+
+@media (max-width: 900px) {
+
+    nav.menu-open {
+        border-radius: 28px;
+
+        flex-wrap: wrap;
+
+        padding-bottom: 10px;
+    }
+
+    nav.menu-open ul {
+        display: flex;
+
+        order: 10;
+
+        width: 100%;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 4px;
+
+        padding-top: 8px;
+
+        border-top: 1px solid var(--line);
+    }
+
+    nav.menu-open ul li {
+        width: 100%;
+    }
+
+    nav.menu-open ul a {
+        width: 100%;
+
+        padding: 11px 14px;
+
+        text-align: center;
+
+        border-radius: 14px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+    nav {
+        width: calc(100% - 16px);
+
+        top: 8px;
+
+        margin-top: 8px;
+
+        padding: 5px 6px 5px 7px;
+
+        border-radius: 24px;
+    }
+
+    .brand {
+        font-size: 17px;
+
+        gap: 7px;
+
+        padding-right: 2px;
+    }
+
+    .brand img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .tools {
+        gap: 4px;
+    }
+
+    .tools button {
+        width: 36px;
+        height: 36px;
+
+        font-size: 13px;
+    }
+
+    .nav-sayhi {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        width: 36px;
+        height: 36px;
+
+        font-size: 18px;
+    }
+
+    nav.menu-open {
+        border-radius: 24px;
+    }
+}
 
 /* =========================================================
    BUTTONS
@@ -1095,40 +1456,766 @@ label {
 
 
 /* =========================================================
-   CONTACT
+   CONTACT BUTTONS
 ========================================================= */
 
-.contact .box {
-    background: var(--contact-bg);
+.contact-actions {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
 
-    color: var(--contact-text);
+    gap: 14px;
+
+    width: 100%;
+    max-width: 760px;
+
+    margin: 0 auto;
+}
+
+.contact-btn {
+    position: relative;
+
+    min-width: 170px;
+    min-height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 13px 18px;
 
     border: 2px solid var(--line);
-    border-radius: 44px;
+    border-radius: 18px;
 
-    box-shadow: 8px 8px 0 var(--sh);
-
-    text-align: center;
-
-    padding: 56px 22px;
-}
-
-.contact h2 {
-    color: var(--contact-text);
-}
-
-.contact .hand {
-    color: var(--mustard);
-}
-
-.contact .btn {
     background: var(--card-bg);
     color: var(--deep);
 
-    margin: 6px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 4px 0 var(--deep);
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease;
 }
 
 
+/* Soft shine effect */
+
+.contact-btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.22),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    transition: left .55s ease;
+
+    pointer-events: none;
+}
+
+.contact-btn:hover::before {
+    left: 130%;
+}
+
+
+/* Hover */
+
+.contact-btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 0 var(--deep);
+}
+
+
+/* Click */
+
+.contact-btn:active {
+    transform: translateY(1px);
+
+    box-shadow:
+        0 2px 0 var(--deep);
+}
+
+
+/* Keyboard accessibility */
+
+.contact-btn:focus-visible {
+    outline: 3px solid var(--mustard);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   CONTACT ICON
+========================================================= */
+
+.contact-icon {
+    flex: 0 0 30px;
+
+    width: 30px;
+    height: 30px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: var(--soft-bg);
+
+    font-size: 15px;
+    line-height: 1;
+
+    transition:
+        transform .25s ease,
+        background-color .3s ease;
+}
+
+.contact-btn:hover .contact-icon {
+    transform:
+        rotate(-8deg)
+        scale(1.08);
+}
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.contact-btn .arrow {
+    flex: 0 0 auto;
+
+    margin-left: auto;
+
+    font-size: 18px;
+    line-height: 1;
+
+    opacity: .5;
+
+    transition:
+        transform .25s ease,
+        opacity .25s ease;
+}
+
+.contact-btn:hover .arrow {
+    transform:
+        translate(3px, -3px);
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   INDIVIDUAL BUTTON HOVER
+========================================================= */
+
+.instagram-btn:hover {
+    background: #f7e4e8;
+}
+
+.youtube-btn:hover {
+    background: #f5dddd;
+}
+
+.email-btn:hover {
+    background: var(--mustard);
+}
+
+
+/* =========================================================
+   CONTACT NOTE
+========================================================= */
+
+/* =========================================================
+   CONTACT SECTION
+========================================================= */
+
+.contact {
+    padding: 70px 0 80px;
+    background: var(--section-bg);
+}
+
+.contact .box {
+    position: relative;
+
+    width: 100%;
+    max-width: 1080px;
+
+    margin: 0 auto;
+
+    padding: 64px 30px 54px;
+
+    text-align: center;
+
+    background: var(--contact-bg);
+    color: var(--contact-text);
+
+    border: 2px solid var(--line);
+    border-radius: 42px;
+
+    box-shadow: 8px 8px 0 var(--sh);
+
+    overflow: hidden;
+    isolation: isolate;
+
+    transition:
+        background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease,
+        transform .3s ease;
+}
+
+
+/* Decorative circles */
+
+.contact .box::before,
+.contact .box::after {
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    transition:
+        transform .5s ease,
+        opacity .3s ease;
+}
+
+.contact .box::before {
+    width: 190px;
+    height: 190px;
+
+    top: -100px;
+    left: -70px;
+
+    background: rgba(255, 255, 255, .08);
+}
+
+.contact .box::after {
+    width: 230px;
+    height: 230px;
+
+    right: -110px;
+    bottom: -130px;
+
+    background: rgba(255, 255, 255, .07);
+}
+
+.contact .box:hover::before {
+    transform: translate(12px, 12px);
+}
+
+.contact .box:hover::after {
+    transform: translate(-12px, -12px);
+}
+
+
+/* Small heading */
+
+.contact .hand {
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    color: var(--mustard);
+
+    font-size: 26px;
+}
+
+
+/* Main heading */
+
+.contact h2 {
+    margin: 0 0 14px;
+
+    color: var(--contact-text);
+
+    font-size: clamp(36px, 5vw, 54px);
+
+    line-height: 1.1;
+}
+
+
+/* Description */
+
+.contact-text {
+    max-width: 500px;
+
+    margin: 0 auto 30px;
+
+    color: rgba(255, 255, 255, .88);
+
+    font-size: 17px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   CONTACT BUTTONS
+========================================================= */
+
+.contact-actions {
+    display: flex;
+
+    justify-content: center;
+    align-items: stretch;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+    width: 100%;
+    max-width: 760px;
+
+    margin: 0 auto;
+}
+
+.contact-btn {
+    position: relative;
+
+    min-width: 170px;
+    min-height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 13px 18px;
+
+    border: 2px solid var(--line);
+    border-radius: 18px;
+
+    background: var(--card-bg);
+    color: var(--deep);
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 4px 0 var(--deep);
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease;
+}
+
+
+/* Button shine */
+
+.contact-btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, .22),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    transition: left .55s ease;
+
+    pointer-events: none;
+}
+
+.contact-btn:hover::before {
+    left: 130%;
+}
+
+
+/* Hover */
+
+.contact-btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 0 var(--deep);
+}
+
+
+/* Click */
+
+.contact-btn:active {
+    transform: translateY(1px);
+
+    box-shadow:
+        0 2px 0 var(--deep);
+}
+
+
+/* Keyboard focus */
+
+.contact-btn:focus-visible {
+    outline: 3px solid var(--mustard);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   CONTACT ICON
+========================================================= */
+
+.contact-icon {
+    flex: 0 0 30px;
+
+    width: 30px;
+    height: 30px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: var(--soft-bg);
+
+    font-size: 15px;
+    line-height: 1;
+
+    transition:
+        transform .25s ease,
+        background-color .3s ease;
+}
+
+.contact-btn:hover .contact-icon {
+    transform:
+        rotate(-8deg)
+        scale(1.08);
+}
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.contact-btn .arrow {
+    flex: 0 0 auto;
+
+    margin-left: auto;
+
+    font-size: 18px;
+    line-height: 1;
+
+    opacity: .5;
+
+    transition:
+        transform .25s ease,
+        opacity .25s ease;
+}
+
+.contact-btn:hover .arrow {
+    transform:
+        translate(3px, -3px);
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   INDIVIDUAL BUTTON HOVER
+========================================================= */
+
+.instagram-btn:hover {
+    background: #f7e4e8;
+}
+
+.youtube-btn:hover {
+    background: #f5dddd;
+}
+
+.email-btn:hover {
+    background: var(--mustard);
+}
+
+
+/* =========================================================
+   CONTACT NOTE
+========================================================= */
+
+.contact-note {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    max-width: 100%;
+
+    margin-top: 26px;
+
+    padding: 8px 16px;
+
+    border: 1px solid rgba(255, 255, 255, .18);
+
+    border-radius: 99px;
+
+    background: rgba(255, 255, 255, .07);
+
+    color: rgba(255, 255, 255, .84);
+
+    font-size: 14px;
+    line-height: 1.4;
+
+    transition:
+        background-color .3s ease,
+        transform .25s ease,
+        border-color .3s ease;
+}
+
+.contact-note:hover {
+    transform: translateY(-2px);
+
+    background: rgba(255, 255, 255, .11);
+
+    border-color:
+        rgba(255, 255, 255, .25);
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+[data-theme="dark"] .contact-text,
+body.dark .contact-text,
+body[data-theme="dark"] .contact-text {
+    color: rgba(255, 245, 235, .84);
+}
+
+[data-theme="dark"] .instagram-btn:hover,
+body.dark .instagram-btn:hover,
+body[data-theme="dark"] .instagram-btn:hover {
+    background: #302126;
+}
+
+[data-theme="dark"] .youtube-btn:hover,
+body.dark .youtube-btn:hover,
+body[data-theme="dark"] .youtube-btn:hover {
+    background: #30201f;
+}
+
+[data-theme="dark"] .email-btn:hover,
+body.dark .email-btn:hover,
+body[data-theme="dark"] .email-btn:hover {
+    background: #514329;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .contact {
+        padding: 56px 0 64px;
+    }
+
+    .contact .box {
+        padding: 52px 20px 42px;
+
+        border-radius: 34px;
+
+        box-shadow:
+            6px 6px 0 var(--sh);
+    }
+
+    .contact-actions {
+        gap: 12px;
+
+        max-width: 620px;
+    }
+
+    .contact-btn {
+        min-width: 150px;
+
+        min-height: 56px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+    .contact {
+        padding: 44px 0 50px;
+    }
+
+    .contact .box {
+        padding: 44px 16px 36px;
+
+        border-radius: 28px;
+
+        box-shadow:
+            5px 5px 0 var(--sh);
+    }
+
+    .contact h2 {
+        font-size: 34px;
+    }
+
+    .contact-text {
+        font-size: 16px;
+
+        margin-bottom: 24px;
+    }
+
+    .contact-actions {
+        width: 100%;
+
+        max-width: 100%;
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .contact-btn {
+        width: 100%;
+
+        min-width: 0;
+
+        min-height: 56px;
+
+        padding: 13px 16px;
+
+        border-radius: 16px;
+    }
+
+    .contact-icon {
+        width: 29px;
+        height: 29px;
+    }
+
+    .contact-note {
+        width: auto;
+
+        max-width: 100%;
+
+        font-size: 13px;
+
+        padding: 8px 13px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .contact {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .contact .box {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .contact h2 {
+        font-size: 30px;
+    }
+
+    .contact-btn {
+        font-size: 15px;
+
+        padding: 12px 13px;
+    }
+
+    .contact-note {
+        font-size: 12.5px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .contact .box,
+    .contact-btn,
+    .contact-icon,
+    .contact-btn .arrow,
+    .contact-note {
+        transition: none;
+    }
+
+    .contact-btn::before {
+        display: none;
+    }
+
+    .contact-btn:hover,
+    .contact-btn:active,
+    .contact-note:hover {
+        transform: none;
+    }
+}
 /* =========================================================
    FOOTER
 ========================================================= */

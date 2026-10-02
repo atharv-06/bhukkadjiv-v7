@@ -34,101 +34,125 @@
 <body>
 
     <!-- ==================================================
-         NAVBAR
+     NAVBAR
     ================================================== -->
 
-    <nav>
+<nav id="mainNav">
 
-        <a
-            class="brand"
-            href="#top"
+    <!-- Brand -->
+    <a
+        class="brand"
+        href="#top"
+        aria-label="Bhukkad Jiv Home"
+    >
+        <img
+            src="image.png"
+            alt="भुक्कड जीव logo"
         >
-            <img
-                src="image.png"
-                alt="भुक्कड जीव logo"
-            >
 
+        <span>
             भुक्कड जीव
-        </a>
+        </span>
+    </a>
 
-        <ul>
 
-            <li>
-                <a
-                    href="#about"
-                    data-mr="माझ्याबद्दल"
-                >
-                    About
-                </a>
-            </li>
+    <!-- Desktop Navigation -->
+    <ul id="navLinks">
 
-            <li>
-                <a
-                    href="#world"
-                    data-mr="माझं विश्व"
-                >
-                    My World
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#diary"
-                    data-mr="डायरी"
-                >
-                    Diary
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#world"
-                    data-mr="भुक्कड ट्रेल"
-                >
-                    Trail
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#enquire"
-                    data-mr="सहयोग"
-                >
-                    Collab
-                </a>
-            </li>
-
-        </ul>
-
-        <div class="tools">
-
-            <button
-                id="lang"
-                title="मराठी / English"
-                aria-label="Language"
+        <li>
+            <a
+                href="#about"
+                data-mr="माझ्याबद्दल"
             >
-                मराठी
-            </button>
+                About
+            </a>
+        </li>
 
-            <button
-                id="theme"
-                title="Dark mode"
-                aria-label="Theme"
+        <li>
+            <a
+                href="#world"
+                data-mr="माझं विश्व"
             >
-                🌙
-            </button>
+                My World
+            </a>
+        </li>
 
-        </div>
+        <li>
+            <a
+                href="#diary"
+                data-mr="डायरी"
+            >
+                Diary
+            </a>
+        </li>
 
-        <a
-            class="btn"
-            href="#enquire"
-            style="padding: 9px 22px;"
+        <li>
+            <a
+                href="#world"
+                data-mr="भुक्कड ट्रेल"
+            >
+                Trail
+            </a>
+        </li>
+
+        <li>
+            <a
+                href="#enquire"
+                data-mr="सहयोग"
+            >
+                Collab
+            </a>
+        </li>
+
+    </ul>
+
+
+    <!-- Right-side tools -->
+    <div class="tools">
+
+        <button
+            id="lang"
+            type="button"
+            title="मराठी / English"
+            aria-label="Change language"
         >
-            Say hi
-        </a>
+            मराठी
+        </button>
 
-    </nav>
+        <button
+            id="theme"
+            type="button"
+            title="Dark mode"
+            aria-label="Toggle dark mode"
+        >
+            🌙
+        </button>
+
+    </div>
+
+
+    <!-- Say Hi -->
+    <a
+        class="nav-sayhi"
+        href="#enquire"
+    >
+        Say hi
+    </a>
+
+
+    <!-- Mobile menu -->
+    <button
+        class="mobile-menu-btn"
+        id="mobileMenuBtn"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navLinks"
+    >
+        ☰
+    </button>
+
+</nav>
 
 
     <!-- ==================================================
@@ -877,59 +901,78 @@
          CONTACT
     ================================================== -->
 
-    <section
-        class="contact"
-        id="contact"
-        style="padding-top: 0;"
-    >
 
-        <div class="wrap">
+<section
+    class="contact"
+    id="contact"
+>
 
-            <div class="box">
+    <div class="wrap">
 
-                <span class="hand">
-                    chala, bolu ya!
-                </span>
+        <div class="box">
 
-                <h2>
-                    Got something fun in mind?
-                </h2>
+            <span class="hand">
+                chala, bolu ya!
+            </span>
 
-                <p
-                    style="
-                        max-width: 480px;
-                        margin: 10px auto 22px;
-                    "
-                >
-                    For collaborations,
-                    events or just to say hello,
-                    find me here.
-                </p>
+            <h2>
+                Got something fun in mind?
+            </h2>
 
+            <p class="contact-text">
+                For collaborations, events,
+                or just to say hello,
+                find me here.
+            </p>
+
+            <div class="contact-actions">
 
                 <a
-                    class="btn"
+                    class="contact-btn instagram-btn"
                     href="https://www.instagram.com/bhukkadjiv/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Visit Bhukkad Jiv on Instagram"
                 >
-                    Instagram
+                    <span class="contact-icon">📸</span>
+                    <span>Instagram</span>
+                    <span class="arrow">↗</span>
                 </a>
 
                 <a
-                    class="btn"
+                    class="contact-btn youtube-btn"
                     href="https://www.youtube.com/@bhukkadjiv"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Visit Bhukkad Jiv on YouTube"
                 >
-                    YouTube
+                    <span class="contact-icon">▶</span>
+                    <span>YouTube</span>
+                    <span class="arrow">↗</span>
+                </a>
+
+                <a
+                    class="contact-btn email-btn"
+                    href="mailto:Prajaktapatil9119@gmail.com?subject=Hello%20Bhukkad%20Jiv"
+                    aria-label="Send an email to Bhukkad Jiv"
+                >
+                    <span class="contact-icon">✉</span>
+                    <span>Email</span>
+                    <span class="arrow">↗</span>
                 </a>
 
             </div>
 
+            <div class="contact-note">
+                <span>💛</span>
+                Let's connect, create & share something lovely.
+            </div>
+
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
     <!-- ==================================================
